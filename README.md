@@ -1,1 +1,13 @@
-# brain-fibers
+# Spherical Transformer Networks for improved Fiber Orientation Prediction from Diffusion MRI ODFs
+
+Diffusion MRI has been used to non-invasively capture the complex microstructure of the brain. Unfortunately, voxel sizes are orders of magnitude larger than the brain's microstructural features. Hence, identifying sub-voxel features of white matter, such as the number of fiber bundles and the orientation of these fiber bundles, remains a difficult problem. Various algorithms have been proposed, including Constrained Spherical Deconvolution (CSD) and Orientation Distribution Function (ODF) fingerprinting. Deep learning techniques are a promising avenue to improve on the accuracy of classic methods. In an earlier project, the hosting lab used a two-step UNet CNN approach to first identify the number of fiber directions in a voxel from projections of the ODF on three 2D-planes. In the second step, the directions of the voxels were identified.
+
+In this project, we aim to push our approach a step further by using spherical transformer networks to fully exploit the spherical nature of the ODF and its symmetry. In particular, we propose to capture the global context along with spherical and geometrical features of the ODF data. We also propose to use a novel spatial contrastive loss that would take in the output embeddings of the transformer network. These voxel embeddings will then be classified into pseudo-labels and fibers with similar spatial orientation are brought close while dissimilar orientations are separated. This will significantly enhance the prediction scores.
+
+The student will, in close collaboration with the hosting research group, implement the network and initially train it on simulated datasets of ODFs and fiber configurations with different levels of SNR. Network training and testing will then be refined using fiber phantom diffusion MRI data which has a known ground truth, in vivo mouse diffusion MRI data which has a Manganese enhanced ground truth for the crossing optic nerve and finally, in human in vivo datasets of healthy volunteers. The final evaluation of the network will be performed on pre-surgical brain tumor patient datasets, where the results will be compared with results from ongoing evaluations of reference and advanced ODF-Fingerprinting approaches.
+
+Expected outcome
+What specifically do you expect the student to accomplish by the end of the summer?
+
+The student is expected to implement and train a network to identify the fiber directions in a diffusion MRI voxel based on the input ODF. Expected output is a repository with well-documented code which can be used for future applications of the method.
+Additional expected outcome, is a write-up of the project progress in conference abstract format.
